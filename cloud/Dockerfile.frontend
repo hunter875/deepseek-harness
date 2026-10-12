@@ -1,0 +1,18 @@
+ARG NODE_BASE
+FROM ${NODE_BASE} AS builder
+WORKDIR /app
+COPY frontend/package*.json ./
+RUN npm ci
+COPY frontend/ ./
+ARG PUBLIC_ORIGIN
+ENV NEXT_PUBLIC_API_GATEWAY=${PUBLIC_ORIGIN} NEXT_PUBLIC_API_URL=${PUBLIC_ORIGIN} NEXT_PUBLIC_SOCKET_URL=${PUBLIC_ORIGIN}/api/ws NEXT_TELEMETRY_DISABLED=1
+RUN mkdir -p public && npm run type-check && npm run lint && npm run build
+FROM ${NODE_BASE}
+WORKDIR /app
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0
+RUN addgroup -g 10001 app && adduser -D -u 10001 -G app app
+COPY --from=builder --chown=10001:10001 /app/.next/standalone ./
+COPY --from=builder --chown=10001:10001 /app/.next/static ./.next/static
+COPY --from=builder --chown=10001:10001 /app/public ./public
+USER 10001:10001
+CMD ["node", "server.js"]

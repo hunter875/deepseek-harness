@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "region": "ap-southeast-1",
+  "currency": "USD",
+  "ceilingUsd": 50,
+  "status": "VERIFIED_QUOTE",
+  "quotedAt": "2026-10-02T08:15:00.000Z",
+  "rateCardHours": 730,
+  "assumptions": {
+    "instanceType": "m7i-flex.large (free-tier eligible; t3a.large is rejected by this account)",
+    "runtimeHoursPerMonth": 40,
+    "rootGb": 30,
+    "dataGb": 30,
+    "snapshotGb": 30,
+    "ecrGb": 3,
+    "logIngestGb": 1,
+    "outboundGb": 5,
+    "publicIpv4Hours": 40,
+    "cpuCreditMode": "standard",
+    "taxPercent": 20,
+    "s3PutRequests": 1000,
+    "s3GetRequests": 10000,
+    "taxPercentMeaning": "Conservative 20% reserve for tax and fees, not this account's actual rate",
+    "hourlyVsMonthly": "ec2Hour, ipv4Hour and outboundGb scale with runtimeHoursPerMonth; gp3GbMonth, snapshotGbMonth, ecrGbMonth, s3GbMonth and logStorageGbMonth are monthly charges that accrue even while the instance is stopped"
+  },
+  "rates": {
+    "ec2Hour": 0.1197,
+    "gp3GbMonth": 0.096,
+    "snapshotGbMonth": 0.05,
+    "ecrGbMonth": 0.1,
+    "logIngestGb": 0.7,
+    "logStorageGbMonth": 0.03,
+    "logQueryGb": 0.007,
+    "ipv4Hour": 0.005,
+    "outboundGb": 0.12,
+    "s3GbMonth": 0.025,
+    "s3Requests": 0.009000000000000001
+  },
+  "sources": [
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-southeast-1/index.json",
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSDataTransfer/current/ap-southeast-1/index.json",
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECR/current/ap-southeast-1/index.json",
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/ap-southeast-1/index.json",
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonVPC/current/ap-southeast-1/index.json",
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonS3/current/ap-southeast-1/index.json"
+  ],
+  "limitations": [
+    "A pre-deployment estimate from public rates, not a bill.",
+    "Cost Explorer can read 0.00 USD while billing lags up to 24 hours and credits mask usage; neither means the resources are free.",
+    "Budgets are delayed alerts, not a hard cap.",
+    "DeepSeek API usage is billed separately and is not part of this figure.",
+    "An always-on instance exceeds the 50 USD ceiling, which is why the session deadline exists."
+  ]
+}

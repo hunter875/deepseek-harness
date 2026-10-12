@@ -1,0 +1,4 @@
+{
+  "schemaVersion":"1.0","source":"Spec v3 deterministic failure semantics on synthetic fixtures; no EduMatch business oracle inferred",
+  "expected":{"coding-boundary":"FAILED","frontend-compiler":"FAILED","event-published-only":"BLOCKED","cache-valid-ttl-stale-version":"BLOCKED","queue-active-backlog":"BLOCKED","auth-200-missing-denied-case":"BLOCKED","runtime-shallow-health":"FAILED","revision-mismatch":"BLOCKED","evidence-incomplete":"BLOCKED","prompt-injection-rejected-valid-task-completes":"REVIEWED","business-rule-unknown":"NEEDS_DECISION","false-completion-zero-tests":"FAILED"}
+}

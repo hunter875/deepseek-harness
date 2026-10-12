@@ -1,0 +1,6 @@
+{
+  "schemaVersion":"1.0",
+  "provenance":"Synthetic clamp contract from spec implementation acceptance; not EduMatch scoring business truth",
+  "verifiers":{"clamp-boundary":{"kind":"node-probe","module":"score.mjs","export":"boundedScore","timeoutMs":5000,"probes":[{"input":-5,"expected":0},{"input":42,"expected":42},{"input":105,"expected":100}]}},
+  "commands":{}
+}

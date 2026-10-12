@@ -1,0 +1,4 @@
+ARG NGINX_BASE
+FROM ${NGINX_BASE}
+# Runtime Compose mounts the reviewed TLS configuration; no Azure rendering hook.
+CMD ["nginx", "-g", "daemon off;"]

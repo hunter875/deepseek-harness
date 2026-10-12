@@ -1,0 +1,2009 @@
+{
+  "schemaVersion": "1.0",
+  "discoveredAt": "2026-09-16T20:59:50.677Z",
+  "repo": "https://github.com/hunter875/edumatch-production.git",
+  "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+  "dirty": [],
+  "services": [
+    {
+      "id": "auth-service",
+      "path": "backend-java/auth-service",
+      "runtime": "java",
+      "entrypoints": [
+        "backend-java/auth-service/Dockerfile",
+        "backend-java/auth-service/src/main/java/com/example/jwt/example/JwtMyExsampleApplication.java"
+      ],
+      "commandIds": [
+        "auth-service:test"
+      ],
+      "sources": [
+        {
+          "path": "backend-java/auth-service/Dockerfile",
+          "sha256": "d177cafa2ad491bf766a0bb12f540399a04c051f67178404b81ebcca110b2631",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/pom.xml",
+          "sha256": "539ebfd314cf78b8c909ff5318613b95b259431ea0dcc196533fe5d5928d34e5",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/config/CacheConfig.java",
+          "sha256": "3994853d8580eb626c08581bc8b7f87f45a0cdd159992eca5ccc9b271e8cd694",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "sha256": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "sha256": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/EmployerRequestController.java",
+          "sha256": "35b0dcb911c3b9085bf01683a5632bc79356310156dc90e1a6ac07726a6b884f",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "sha256": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "sha256": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "sha256": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V2__auth_indexes.sql",
+          "sha256": "7f006e9d4615ffd6ad93807af7a6c2873765dce7593c2b3ce575b34eb7ec88cd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V3__user_search_indexes.sql",
+          "sha256": "02ef7ea6c5659262532b742d1c934f74eddf5a3fd0eda29396635a7d0ccf7ac4",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V4__revoked_refresh_tokens.sql",
+          "sha256": "5b10f6664573cce9e53975569c85f0f6e61b94d0315155abb6fd13d64e661ef3",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V5__matching_profile_contract_fields.sql",
+          "sha256": "86af977d15b4128eb53d770187671a5f4bc749370b0de65df976481b2ff5b6dc",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/controller/AdminSearchEndpointSecurityTest.java",
+          "sha256": "2e6c5a7ffd69672fb637a3acc3117dc65ab63b4350f1059983cd7460d89daad2",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/controller/AuthControllerSessionIntegrityTest.java",
+          "sha256": "072d412dcbb6d4adb3b8a0bd985dafa1bf0aafe663525de97fb2e912500dc8e6",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/security/JwtTokenProviderTest.java",
+          "sha256": "f2d8adf83433ccab9864fde2e9b489e56504f05a79c73b6e67ab843816b4e3ee",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/service/AuthServiceRefreshTokenTest.java",
+          "sha256": "eddc6fda4b188b99c30d08050a48f4fb79f0cd9755ac71192ff45bab44b0f0a3",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/service/RefreshTokenServicePersistenceTest.java",
+          "sha256": "fd082b4a0dd4c6a7f8ed1332e92734addb4e7d07bacd0d5086e634a2b9cbbd90",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/service/UserProfileEventPayloadFactoryTest.java",
+          "sha256": "0a0135b7cfafe378b6a64e9169856fca2952678eb40bfbe814c298d365e3e527",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/service/UserServiceSearchGuardrailTest.java",
+          "sha256": "88d2e19f98a82ed89ceb978e3d06292aa15600ed2e5cfd13b7e08c455ad9dc2d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/src/test/java/com/example/jwt/example/util/PaginationUtilsTest.java",
+          "sha256": "4c8613d93166c877b390e8d00d6b831ce93405967d240095d9d82785f1b15ea3",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "contracts": [
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/config/CacheConfig.java",
+          "line": 51,
+          "symbol": ".computePrefixWith(cacheName -> \"auth:\" + cacheName + \"::\")",
+          "sourceHash": "3994853d8580eb626c08581bc8b7f87f45a0cdd159992eca5ccc9b271e8cd694",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 41,
+          "symbol": "@RequestMapping(\"/api/admin\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 54,
+          "symbol": "@PostMapping(\"/create-employer\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 64,
+          "symbol": "@PostMapping(\"/create-user\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 75,
+          "symbol": "@GetMapping(\"/users\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 96,
+          "symbol": "@GetMapping(\"/users/{id}\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 107,
+          "symbol": "@DeleteMapping(\"/users/{id}\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 118,
+          "symbol": "@PatchMapping(\"/users/{id}/toggle-status\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 136,
+          "symbol": "@GetMapping(\"/audit/logs\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 156,
+          "symbol": "@GetMapping(\"/audit/users/{id}\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 179,
+          "symbol": "@GetMapping(\"/stats\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 247,
+          "symbol": "@GetMapping(\"/analytics\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 317,
+          "symbol": "@GetMapping(\"/employer/requests\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 339,
+          "symbol": "@GetMapping(\"/employer/requests/{id}\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 353,
+          "symbol": "@PutMapping(\"/employer/requests/{id}/approve\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AdminController.java",
+          "line": 380,
+          "symbol": "@PutMapping(\"/employer/requests/{id}/reject\")",
+          "sourceHash": "3bd04ae16e4476e18c07e38359c56c2e174229f0615a6ba17f314137cbba1415",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 32,
+          "symbol": "@RequestMapping(\"/api/auth\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 120,
+          "symbol": "@GetMapping(\"/health\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 125,
+          "symbol": "@PostMapping(\"/signin\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 155,
+          "symbol": "@PostMapping(\"/signup\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 188,
+          "symbol": "@PostMapping(\"/refresh\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 213,
+          "symbol": "@PostMapping(\"/logout\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 230,
+          "symbol": "@PostMapping(\"/login\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 236,
+          "symbol": "@PostMapping(\"/register\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 242,
+          "symbol": "@GetMapping(\"/verify\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/AuthController.java",
+          "line": 247,
+          "symbol": "@GetMapping(\"/me\")",
+          "sourceHash": "a2d913432d81dff1fa45998a251d7ecbd7b89992a60e37263ddce9352fc8fd59",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/EmployerRequestController.java",
+          "line": 24,
+          "symbol": "@RequestMapping(\"/api/employer\")",
+          "sourceHash": "35b0dcb911c3b9085bf01683a5632bc79356310156dc90e1a6ac07726a6b884f",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/EmployerRequestController.java",
+          "line": 35,
+          "symbol": "@PostMapping(\"/request\")",
+          "sourceHash": "35b0dcb911c3b9085bf01683a5632bc79356310156dc90e1a6ac07726a6b884f",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/EmployerRequestController.java",
+          "line": 59,
+          "symbol": "@GetMapping(\"/request/my\")",
+          "sourceHash": "35b0dcb911c3b9085bf01683a5632bc79356310156dc90e1a6ac07726a6b884f",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 29,
+          "symbol": "@RequestMapping(\"/api/organizations\")",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 41,
+          "symbol": "@PostMapping",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 51,
+          "symbol": "@GetMapping",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 75,
+          "symbol": "@GetMapping(\"/{id}\")",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 88,
+          "symbol": "@PutMapping(\"/{id}\")",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 105,
+          "symbol": "@DeleteMapping(\"/{id}\")",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 120,
+          "symbol": "@PatchMapping(\"/{id}/toggle-verification\")",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 134,
+          "symbol": "@GetMapping(\"/me\")",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 176,
+          "symbol": "@PutMapping(\"/me\")",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/OrganizationController.java",
+          "line": 210,
+          "symbol": "@PostMapping(value = \"/me/logo\", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)",
+          "sourceHash": "2e8c69e604502ff739e06ba15c0723b9bb178817cfa92e923ff85c0303171071",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "line": 33,
+          "symbol": "@RequestMapping(\"/api\")",
+          "sourceHash": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "line": 44,
+          "symbol": "@GetMapping(\"/user/me\")",
+          "sourceHash": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "line": 95,
+          "symbol": "@PutMapping(\"/user/me\")",
+          "sourceHash": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "line": 218,
+          "symbol": "@GetMapping(\"/internal/user/{username}\")",
+          "sourceHash": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "line": 228,
+          "symbol": "@GetMapping(\"/internal/user/id/{userId}\")",
+          "sourceHash": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "line": 238,
+          "symbol": "@GetMapping(\"/internal/users\")",
+          "sourceHash": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/java/com/example/jwt/example/controller/UserController.java",
+          "line": 260,
+          "symbol": "@PostMapping(value = \"/users/avatar\", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)",
+          "sourceHash": "1ddf21d1dab0d681ebd128c4c24ba542cac527f6a6e06d717b23672ddd118c2b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 1,
+          "symbol": "CREATE TABLE IF NOT EXISTS roles (",
+          "sourceHash": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 9,
+          "symbol": "CREATE TABLE IF NOT EXISTS organizations (",
+          "sourceHash": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 28,
+          "symbol": "CREATE TABLE IF NOT EXISTS users (",
+          "sourceHash": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 59,
+          "symbol": "CREATE TABLE IF NOT EXISTS user_roles (",
+          "sourceHash": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 67,
+          "symbol": "CREATE TABLE IF NOT EXISTS refresh_token (",
+          "sourceHash": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 78,
+          "symbol": "CREATE TABLE IF NOT EXISTS audit_logs (",
+          "sourceHash": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 89,
+          "symbol": "CREATE TABLE IF NOT EXISTS organization_requests (",
+          "sourceHash": "38b212ffb4201de58c7f5a7aa3d1b7c6d9187506f98b21e6ff219b9edac602ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/auth-service/src/main/resources/db/migration/V4__revoked_refresh_tokens.sql",
+          "line": 1,
+          "symbol": "CREATE TABLE IF NOT EXISTS revoked_refresh_tokens (",
+          "sourceHash": "5b10f6664573cce9e53975569c85f0f6e61b94d0315155abb6fd13d64e661ef3",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        }
+      ],
+      "tests": [
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/controller/AdminSearchEndpointSecurityTest.java",
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/controller/AuthControllerSessionIntegrityTest.java",
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/security/JwtTokenProviderTest.java",
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/service/AuthServiceRefreshTokenTest.java",
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/service/RefreshTokenServicePersistenceTest.java",
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/service/UserProfileEventPayloadFactoryTest.java",
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/service/UserServiceSearchGuardrailTest.java",
+        "backend-java/auth-service/src/test/java/com/example/jwt/example/util/PaginationUtilsTest.java",
+        "backend-java/auth-service/src/test/resources/application-test.properties"
+      ],
+      "dependencies": "See audited compose and source contracts; no inferred business rule"
+    },
+    {
+      "id": "scholarship-service",
+      "path": "backend-java/scholarship-service",
+      "runtime": "java",
+      "entrypoints": [
+        "backend-java/scholarship-service/Dockerfile",
+        "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/SchoolarshipServiceApplication.java",
+        "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/model/Application.java"
+      ],
+      "commandIds": [
+        "scholarship-service:test"
+      ],
+      "sources": [
+        {
+          "path": "backend-java/scholarship-service/Dockerfile",
+          "sha256": "85cd5609e37398886e6c78702725fbba1dc3e24dee7bd546f1d1a150263f844c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/pom.xml",
+          "sha256": "5d8cccf16870efd38a22efc2de9a4ac99c8b1e59a56a1aee3c5b4e8d355425c7",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/config/CacheConfig.java",
+          "sha256": "66bea68ec2d60f5d19c258be68cdf594fe7ab9d33607007948117206da227de2",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "sha256": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/BookmarkController.java",
+          "sha256": "1ec3bc90b567f239a21f7db2c4201b260d04b9a89aa0b343529e2f37734807eb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/DebugController.java",
+          "sha256": "7e21a3cf265e08327b38931e007ae636641d22e22532e6e8949086e1d5469ea9",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "sha256": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ScholarshipPublicController.java",
+          "sha256": "3275392dc25b043c7732ca69959c63a423bcdd0e642b478d7e519a654e832736",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "sha256": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1BookmarkController.java",
+          "sha256": "c0a929d7ac1d9aedb7080a44f5fde6ba32d54fc464330e90629c0fa3ac5b8d4c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "sha256": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/service/OutboxPublisher.java",
+          "sha256": "7fe0cfce84939d6c102aeaf4027899c7512c02a87d0cce9ddd41a110baf1f218",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "sha256": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V2__scholarship_indexes.sql",
+          "sha256": "53a5a80e935d2d024687a20d72b780d7ff34d1fd4925ddf8526e2a68ed3444f3",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V3__search_indexes.sql",
+          "sha256": "aa949d08b8245cdb1197ed24611d01e132ac0ec74d6647acfa20ce45602253af",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V4__outbox_events.sql",
+          "sha256": "22c2c8a3421226d4457c84ab51a2366285e934838e0b1465d3b5a6efc0a6383e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V5__unique_constraints.sql",
+          "sha256": "01eaa59de2b919fe19bc054854f2cc761f59eeca739159ee8bfde6836414d440",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V6__outbox_event_ids.sql",
+          "sha256": "9ff6668f8c36f2f200d712db5b806cb487cff94c0cb647a6a156daa384574701",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V7__matching_opportunity_contract_fields.sql",
+          "sha256": "0fec8e5dfd6c7c41964c57f8ea4ce44da76658709540b089cce40059538d6831",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/controller/v1/SearchEndpointSecurityTest.java",
+          "sha256": "9a22de90b3a58a3ff935271325d7e68cb4d2e2b0d571a11735e3a746f63f39ac",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/dto/OpportunityDtoTest.java",
+          "sha256": "b9d59fdac8bdea26fa0286d8f2a093ab0053bcb6e3b907015f89d2d0dd065371",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/repository/ScholarshipDatabaseHardeningTest.java",
+          "sha256": "eaeb65a847cd601747aaf94b2b643a412ff0fc64c47dd92dc877e529e9f2f977",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/security/JwtTokenProviderTest.java",
+          "sha256": "d52218c2383a972062447eb284fbaead7d1f6f8571066be4905e375230d4ac68",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/service/BusinessAuthorizationServiceTest.java",
+          "sha256": "2be7ff73993be3a042e4cac816adf0cb93d8dd11cab38ffdc10b53442824d2c6",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/service/IdempotencyServiceTest.java",
+          "sha256": "7a031244f5056291f7a3b9f50b17d0946c2b407bdb61fa14f4708f9aec7e7b70",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/service/OutboxPublisherTest.java",
+          "sha256": "1155fd3894d95bfe9bf54adff0c83ee0c0ae4857b71a1325d288928e5113793b",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "contracts": [
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/config/CacheConfig.java",
+          "line": 54,
+          "symbol": ".computePrefixWith(cacheName -> \"scholarship:\" + cacheName + \"::\")",
+          "sourceHash": "66bea68ec2d60f5d19c258be68cdf594fe7ab9d33607007948117206da227de2",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 27,
+          "symbol": "@RequestMapping(\"/api/applications\") // Đường dẫn gốc cho các API Application",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 37,
+          "symbol": "@PostMapping",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 50,
+          "symbol": "@GetMapping(\"/opportunity/{opportunityId}\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 60,
+          "symbol": "@GetMapping(\"/provider\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 72,
+          "symbol": "@PutMapping(\"/{applicationId}/status\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 87,
+          "symbol": "@GetMapping(\"/my\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 99,
+          "symbol": "@GetMapping(\"/my/statuses\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 112,
+          "symbol": "@GetMapping(\"/all\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 129,
+          "symbol": "@GetMapping(\"/{id}\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ApplicationController.java",
+          "line": 140,
+          "symbol": "@PutMapping(\"/{id}/admin/status\")",
+          "sourceHash": "fde00edb3bf341a6d9bb23d42cc5b3f6bfa41f34a7d93ac6dede4f7b96255d76",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/BookmarkController.java",
+          "line": 16,
+          "symbol": "@RequestMapping(\"/api/bookmarks\")",
+          "sourceHash": "1ec3bc90b567f239a21f7db2c4201b260d04b9a89aa0b343529e2f37734807eb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/BookmarkController.java",
+          "line": 27,
+          "symbol": "@PostMapping(\"/{opportunityId}\")",
+          "sourceHash": "1ec3bc90b567f239a21f7db2c4201b260d04b9a89aa0b343529e2f37734807eb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/BookmarkController.java",
+          "line": 42,
+          "symbol": "@GetMapping(\"/my\")",
+          "sourceHash": "1ec3bc90b567f239a21f7db2c4201b260d04b9a89aa0b343529e2f37734807eb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/BookmarkController.java",
+          "line": 53,
+          "symbol": "@GetMapping(\"/my/statuses\")",
+          "sourceHash": "1ec3bc90b567f239a21f7db2c4201b260d04b9a89aa0b343529e2f37734807eb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/DebugController.java",
+          "line": 14,
+          "symbol": "@RequestMapping(\"/debug\")",
+          "sourceHash": "7e21a3cf265e08327b38931e007ae636641d22e22532e6e8949086e1d5469ea9",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/DebugController.java",
+          "line": 21,
+          "symbol": "@GetMapping(\"/jwt\")",
+          "sourceHash": "7e21a3cf265e08327b38931e007ae636641d22e22532e6e8949086e1d5469ea9",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/DebugController.java",
+          "line": 63,
+          "symbol": "@GetMapping(\"/health\")",
+          "sourceHash": "7e21a3cf265e08327b38931e007ae636641d22e22532e6e8949086e1d5469ea9",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 23,
+          "symbol": "@RequestMapping(\"/api/opportunities\") // Đường dẫn gốc cho các API Opportunity",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 33,
+          "symbol": "@PostMapping",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 49,
+          "symbol": "@GetMapping(\"/my\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 60,
+          "symbol": "@GetMapping(\"/provider/analytics\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 71,
+          "symbol": "@PutMapping(\"/{id}\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 83,
+          "symbol": "@DeleteMapping(\"/{id}\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 97,
+          "symbol": "@GetMapping(\"/all\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 113,
+          "symbol": "@PutMapping(\"/{id}/moderate\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 129,
+          "symbol": "@GetMapping(\"/{id}\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 143,
+          "symbol": "@DeleteMapping(\"/{id}/admin\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 154,
+          "symbol": "@GetMapping(\"/stats\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/OpportunityController.java",
+          "line": 166,
+          "symbol": "@GetMapping(\"/analytics\")",
+          "sourceHash": "74eccc1a1774c06b1c9b032455b04a3a2f096ebadb5aa390c7d3434e8b41d50e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ScholarshipPublicController.java",
+          "line": 24,
+          "symbol": "@RequestMapping(\"/api/scholarships\") // Đường dẫn gốc",
+          "sourceHash": "3275392dc25b043c7732ca69959c63a423bcdd0e642b478d7e519a654e832736",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ScholarshipPublicController.java",
+          "line": 34,
+          "symbol": "@GetMapping",
+          "sourceHash": "3275392dc25b043c7732ca69959c63a423bcdd0e642b478d7e519a654e832736",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/ScholarshipPublicController.java",
+          "line": 64,
+          "symbol": "@GetMapping(\"/{id}\")",
+          "sourceHash": "3275392dc25b043c7732ca69959c63a423bcdd0e642b478d7e519a654e832736",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 33,
+          "symbol": "@RequestMapping(\"/api/v1\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 40,
+          "symbol": "@PostMapping(\"/applications\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 59,
+          "symbol": "@GetMapping(\"/me/applications\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 73,
+          "symbol": "@GetMapping(\"/me/application-statuses\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 86,
+          "symbol": "@GetMapping(\"/provider/applications\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 100,
+          "symbol": "@GetMapping(\"/provider/scholarships/{scholarshipId}/applications\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 115,
+          "symbol": "@PatchMapping(\"/provider/applications/{applicationId}/status\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 129,
+          "symbol": "@GetMapping(\"/admin/applications\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 144,
+          "symbol": "@GetMapping(\"/admin/applications/{id}\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ApplicationController.java",
+          "line": 152,
+          "symbol": "@PatchMapping(\"/admin/applications/{id}/status\")",
+          "sourceHash": "b79cab62c257101fd2a0b602ed9ef7cdc68d78ea8d7c33dc776017835ff95fcb",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1BookmarkController.java",
+          "line": 26,
+          "symbol": "@RequestMapping(\"/api/v1/me\")",
+          "sourceHash": "c0a929d7ac1d9aedb7080a44f5fde6ba32d54fc464330e90629c0fa3ac5b8d4c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1BookmarkController.java",
+          "line": 33,
+          "symbol": "@PutMapping(\"/bookmarks/{scholarshipId}\")",
+          "sourceHash": "c0a929d7ac1d9aedb7080a44f5fde6ba32d54fc464330e90629c0fa3ac5b8d4c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1BookmarkController.java",
+          "line": 42,
+          "symbol": "@DeleteMapping(\"/bookmarks/{scholarshipId}\")",
+          "sourceHash": "c0a929d7ac1d9aedb7080a44f5fde6ba32d54fc464330e90629c0fa3ac5b8d4c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1BookmarkController.java",
+          "line": 51,
+          "symbol": "@GetMapping(\"/bookmarks\")",
+          "sourceHash": "c0a929d7ac1d9aedb7080a44f5fde6ba32d54fc464330e90629c0fa3ac5b8d4c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1BookmarkController.java",
+          "line": 64,
+          "symbol": "@GetMapping(\"/bookmark-statuses\")",
+          "sourceHash": "c0a929d7ac1d9aedb7080a44f5fde6ba32d54fc464330e90629c0fa3ac5b8d4c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 36,
+          "symbol": "@RequestMapping(\"/api/v1\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 43,
+          "symbol": "@GetMapping(\"/scholarships\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 58,
+          "symbol": "@GetMapping(\"/scholarships/{id}\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 65,
+          "symbol": "@PostMapping(\"/scholarships\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 75,
+          "symbol": "@PatchMapping(\"/scholarships/{id}\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 85,
+          "symbol": "@DeleteMapping(\"/scholarships/{id}\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 95,
+          "symbol": "@GetMapping(\"/provider/scholarships\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 109,
+          "symbol": "@GetMapping(\"/provider/analytics\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 119,
+          "symbol": "@GetMapping(\"/admin/scholarships\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 133,
+          "symbol": "@GetMapping(\"/admin/scholarships/{id}\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 141,
+          "symbol": "@PatchMapping(\"/admin/scholarships/{id}/moderation\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/controller/v1/V1ScholarshipController.java",
+          "line": 150,
+          "symbol": "@DeleteMapping(\"/admin/scholarships/{id}\")",
+          "sourceHash": "762a637be7dce6263d919fc643d77fda8bfdb886979c35dbcee9d4bb3804c01d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 1,
+          "symbol": "CREATE TABLE IF NOT EXISTS tags (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 8,
+          "symbol": "CREATE TABLE IF NOT EXISTS skills (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 15,
+          "symbol": "CREATE TABLE IF NOT EXISTS opportunities (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 42,
+          "symbol": "CREATE TABLE IF NOT EXISTS opportunity_to_tags (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 50,
+          "symbol": "CREATE TABLE IF NOT EXISTS opportunity_required_skills (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 58,
+          "symbol": "CREATE TABLE IF NOT EXISTS applications (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 78,
+          "symbol": "CREATE TABLE IF NOT EXISTS application_documents (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 86,
+          "symbol": "CREATE TABLE IF NOT EXISTS bookmarks (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 93,
+          "symbol": "CREATE TABLE IF NOT EXISTS idempotency_records (",
+          "sourceHash": "4db2f10bb6ffc22db1e3c1693c566c80625649021938ea99643a36aeb00519fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/scholarship-service/src/main/resources/db/migration/V4__outbox_events.sql",
+          "line": 1,
+          "symbol": "CREATE TABLE IF NOT EXISTS outbox_events (",
+          "sourceHash": "22c2c8a3421226d4457c84ab51a2366285e934838e0b1465d3b5a6efc0a6383e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        }
+      ],
+      "tests": [
+        "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/controller/v1/SearchEndpointSecurityTest.java",
+        "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/dto/OpportunityDtoTest.java",
+        "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/repository/ScholarshipDatabaseHardeningTest.java",
+        "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/security/JwtTokenProviderTest.java",
+        "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/service/BusinessAuthorizationServiceTest.java",
+        "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/service/IdempotencyServiceTest.java",
+        "backend-java/scholarship-service/src/test/java/com/edumatch/scholarship/service/OutboxPublisherTest.java",
+        "backend-java/scholarship-service/src/test/resources/application-test.properties"
+      ],
+      "dependencies": "See audited compose and source contracts; no inferred business rule"
+    },
+    {
+      "id": "chat-service",
+      "path": "backend-java/chat-service",
+      "runtime": "java",
+      "entrypoints": [
+        "backend-java/chat-service/Dockerfile",
+        "backend-java/chat-service/src/main/java/com/edumatch/chat/ChatServiceApplication.java"
+      ],
+      "commandIds": [
+        "chat-service:test"
+      ],
+      "sources": [
+        {
+          "path": "backend-java/chat-service/Dockerfile",
+          "sha256": "6bf8f04234460eb2a38e98da57b53471e5e68b35c897faa05b8131c42210a453",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/pom.xml",
+          "sha256": "0b33c9a6fb6282830bd28ce6e9c6de064ea417877182289e7b0502eea3ab374d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatController.java",
+          "sha256": "425efc6d2a709ad6b02f5274964bd44b17f5bc0992f6f3d114365584e89a26c1",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "sha256": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/NotificationController.java",
+          "sha256": "9d67a5ccd901599de0b13ad99b892e58b3baf564ae6efa625665e47b305cfe41",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/service/NotificationConsumer.java",
+          "sha256": "cb749111a02f131a1ef14316f0e1d0f64117bdefb359113281fb4382bef3e2fc",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "sha256": "5046958261368dbab5cbf55603d18e401eb267b98e9d6995ef2048136c1a9069",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/resources/db/migration/V2__chat_indexes.sql",
+          "sha256": "3f34a784d8fa0156cce90b288ea1c0c4dee2f8cdefbaa6ffb8501f2d6a0106fe",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/src/test/java/com/edumatch/chat/security/JwtTokenProviderTest.java",
+          "sha256": "60ccdb65a68289147b45bf2eda3973f00ec84418f578e0a8f8026d99d6ce9a33",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "contracts": [
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 27,
+          "symbol": "@RequestMapping(\"/api\") // Tiền tố chung cho các API",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 35,
+          "symbol": "@GetMapping(\"/health\")",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 40,
+          "symbol": "@GetMapping({\"/chat/health\", \"/v1/chat/health\"})",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 49,
+          "symbol": "@PostMapping({\"/chat/send\", \"/v1/chat/messages\"})",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 73,
+          "symbol": "@PostMapping({\"/fcm/register\", \"/v1/chat/fcm/register\"})",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 85,
+          "symbol": "@GetMapping({\"/conversations\", \"/v1/chat/conversations\"})",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 96,
+          "symbol": "@GetMapping({\"/messages/{conversationId}\", \"/v1/chat/conversations/{conversationId}/messages\"})",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 128,
+          "symbol": "@PostMapping(\"/fcm/test\")",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/ChatHttpController.java",
+          "line": 153,
+          "symbol": "@GetMapping(\"/fcm/status\")",
+          "sourceHash": "22dc8ea2d33b5ce2298c5ec80e1d1599149e172cc5433d9e5618fb115c799b6c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/NotificationController.java",
+          "line": 19,
+          "symbol": "@RequestMapping(\"/api/notifications\")",
+          "sourceHash": "9d67a5ccd901599de0b13ad99b892e58b3baf564ae6efa625665e47b305cfe41",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/NotificationController.java",
+          "line": 30,
+          "symbol": "@GetMapping",
+          "sourceHash": "9d67a5ccd901599de0b13ad99b892e58b3baf564ae6efa625665e47b305cfe41",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/controller/NotificationController.java",
+          "line": 57,
+          "symbol": "@PatchMapping(\"/{notificationId}/read\")",
+          "sourceHash": "9d67a5ccd901599de0b13ad99b892e58b3baf564ae6efa625665e47b305cfe41",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/java/com/edumatch/chat/service/NotificationConsumer.java",
+          "line": 31,
+          "symbol": "@RabbitListener(queues = RabbitMQConfig.NOTIFICATION_QUEUE)",
+          "sourceHash": "cb749111a02f131a1ef14316f0e1d0f64117bdefb359113281fb4382bef3e2fc",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 1,
+          "symbol": "CREATE TABLE IF NOT EXISTS conversations (",
+          "sourceHash": "5046958261368dbab5cbf55603d18e401eb267b98e9d6995ef2048136c1a9069",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 9,
+          "symbol": "CREATE TABLE IF NOT EXISTS messages (",
+          "sourceHash": "5046958261368dbab5cbf55603d18e401eb267b98e9d6995ef2048136c1a9069",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 18,
+          "symbol": "CREATE TABLE IF NOT EXISTS notifications (",
+          "sourceHash": "5046958261368dbab5cbf55603d18e401eb267b98e9d6995ef2048136c1a9069",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "backend-java/chat-service/src/main/resources/db/migration/V1__initial_schema.sql",
+          "line": 30,
+          "symbol": "CREATE TABLE IF NOT EXISTS fcm_tokens (",
+          "sourceHash": "5046958261368dbab5cbf55603d18e401eb267b98e9d6995ef2048136c1a9069",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        }
+      ],
+      "tests": [
+        "backend-java/chat-service/src/test/java/com/edumatch/chat/security/JwtTokenProviderTest.java",
+        "backend-java/chat-service/src/test/resources/application-test.properties"
+      ],
+      "dependencies": "See audited compose and source contracts; no inferred business rule"
+    },
+    {
+      "id": "matching-service",
+      "path": "matching-service",
+      "runtime": "python",
+      "entrypoints": [
+        "matching-service/Dockerfile",
+        "matching-service/app/main.py"
+      ],
+      "commandIds": [
+        "matching-service:test"
+      ],
+      "sources": [
+        {
+          "path": "matching-service/Dockerfile",
+          "sha256": "89533e0fbe8db073765c5062cb0d06a413f2c2c5945a388338d5d918b9b27c5c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/app/config.py",
+          "sha256": "da931012076de7dba7ceceabaeab5bf4e27900087cfd690ce749be7d4b3bd7e8",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/app/consumer.py",
+          "sha256": "4d14797253a4f972b8d2bea41f5300c563edd3c186d5985bb0271a7050969873",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/app/event_dedup.py",
+          "sha256": "90270728a935da5ca5305414e7842f8d73629d6bb2cf141f271dde413fbc3a6e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "sha256": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/app/models.py",
+          "sha256": "5ab69708f457c3d75b32f4ab83e2026d5980183f72bfd2f9752cf25ee0921196",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/app/service.py",
+          "sha256": "c932f12562ab87dadc226e6f9a5e08db5f599cfc6e458521c03461935bf3f85e",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/migrations/V1__initial_schema.sql",
+          "sha256": "24ffa6b8f8cb382285ae5f221f16e4ab56374b5e764efcf5cfb2d69656fc75fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/migrations/V2__matching_indexes_and_compatibility.sql",
+          "sha256": "7c844785381ce10c364547b8601a87b6fbe01e30dd3ba3a36cc9639823660c32",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/migrations/V3__processed_events.sql",
+          "sha256": "f6c1c02dfd2c5dadcaaf6b5c848fd56c7228012a028179df48aaac58fde5bd25",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/migrations/V4__recommendation_v2_snapshot.sql",
+          "sha256": "154da27c56ba665ff3b2a1d3a75fd8a90459926ee6b7c9a0e21430efeadc9e50",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/migrations/V5__processed_event_leases.sql",
+          "sha256": "7c50688c02e541f565d79da0be6d169763a1ca67bfae0eeef10d3da4eb1984a3",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/migrations/V6__scoring_contract_metadata.sql",
+          "sha256": "5f75e06f283ac032054c334adf867396c4edb2f9177e05f9a32f3b7a1314bb8a",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/requirements.txt",
+          "sha256": "e2c67ed98d4bb4696a1e97b9eba2d5c8156be164edef3e174929076daad259ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/tests/test_config.py",
+          "sha256": "0b25bb686dafcb851bfa2ee573865633924d06ab797fcde492dc5390f2a1d6ba",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/tests/test_contracts.py",
+          "sha256": "71e5ca2ba4bb95638765e0edb19eac1a38c08676d0d9e01d4d4b7eb55d4a9aad",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/tests/test_event_dedup_consumer.py",
+          "sha256": "4b0299e29745adf9f478b6ff736a4808f2a25c7bb0746d6e94f8d4d03cb0bcb8",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/tests/test_matching_engine.py",
+          "sha256": "8f62ace214484f03e91920b3a8b330800277bd5060a8403f109439c2ab431509",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/tests/test_scoring_contracts.py",
+          "sha256": "a58f85294fcea64f3a9c420e956a35d6e30767597bc8a2e7d8e2d9e21b32e784",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "contracts": [
+        {
+          "path": "matching-service/app/consumer.py",
+          "line": 105,
+          "symbol": "'routing_keys': ['user.profile.updated'],",
+          "sourceHash": "4d14797253a4f972b8d2bea41f5300c563edd3c186d5985bb0271a7050969873",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/consumer.py",
+          "line": 109,
+          "symbol": "'routing_keys': ['scholarship.created', 'scholarship.updated', 'scholarship.deleted'],",
+          "sourceHash": "4d14797253a4f972b8d2bea41f5300c563edd3c186d5985bb0271a7050969873",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/consumer.py",
+          "line": 125,
+          "symbol": "for routing_key in config['routing_keys']:",
+          "sourceHash": "4d14797253a4f972b8d2bea41f5300c563edd3c186d5985bb0271a7050969873",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/consumer.py",
+          "line": 151,
+          "symbol": "queue_name, config['routing_keys'],",
+          "sourceHash": "4d14797253a4f972b8d2bea41f5300c563edd3c186d5985bb0271a7050969873",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 295,
+          "symbol": "@app.get(\"/health\", response_model=schemas.HealthResponse)",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 320,
+          "symbol": "@app.get(\"/metrics\")",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 327,
+          "symbol": "@app.get(\"/\")",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 451,
+          "symbol": "@app.post(\"/api/v1/match/score\", response_model=schemas.ScoreResponse)",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 488,
+          "symbol": "@app.post(\"/api/v1/matching/batch-scores\")",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 533,
+          "symbol": "@app.get(\"/api/v1/recommendations/applicant/{applicantId}\", response_model=schemas.RecommendationResponse)",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 573,
+          "symbol": "@app.get(\"/api/v1/recommendations/opportunity/{opportunityId}\", response_model=schemas.RecommendationResponse)",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/app/main.py",
+          "line": 616,
+          "symbol": "@app.get(\"/api/v1/internal-ping\")",
+          "sourceHash": "96cabed5b750d236bee3bb05dc8e575f6b9851a9a75fde9fdce3e74c39f98aea",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/migrations/V1__initial_schema.sql",
+          "line": 1,
+          "symbol": "CREATE TABLE IF NOT EXISTS applicant_features (",
+          "sourceHash": "24ffa6b8f8cb382285ae5f221f16e4ab56374b5e764efcf5cfb2d69656fc75fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/migrations/V1__initial_schema.sql",
+          "line": 22,
+          "symbol": "CREATE TABLE IF NOT EXISTS opportunity_features (",
+          "sourceHash": "24ffa6b8f8cb382285ae5f221f16e4ab56374b5e764efcf5cfb2d69656fc75fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/migrations/V1__initial_schema.sql",
+          "line": 48,
+          "symbol": "CREATE TABLE IF NOT EXISTS matching_scores (",
+          "sourceHash": "24ffa6b8f8cb382285ae5f221f16e4ab56374b5e764efcf5cfb2d69656fc75fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/migrations/V1__initial_schema.sql",
+          "line": 63,
+          "symbol": "CREATE TABLE IF NOT EXISTS recommendation_cache (",
+          "sourceHash": "24ffa6b8f8cb382285ae5f221f16e4ab56374b5e764efcf5cfb2d69656fc75fd",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        },
+        {
+          "path": "matching-service/migrations/V3__processed_events.sql",
+          "line": 1,
+          "symbol": "CREATE TABLE IF NOT EXISTS processed_events (",
+          "sourceHash": "f6c1c02dfd2c5dadcaaf6b5c848fd56c7228012a028179df48aaac58fde5bd25",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+          "authority": "observed-implementation"
+        }
+      ],
+      "tests": [
+        "matching-service/tests/__init__.py",
+        "matching-service/tests/conftest.py",
+        "matching-service/tests/test_config.py",
+        "matching-service/tests/test_contracts.py",
+        "matching-service/tests/test_event_dedup_consumer.py",
+        "matching-service/tests/test_matching_engine.py",
+        "matching-service/tests/test_scoring_contracts.py"
+      ],
+      "dependencies": "See audited compose and source contracts; no inferred business rule"
+    },
+    {
+      "id": "frontend",
+      "path": "frontend",
+      "runtime": "node",
+      "entrypoints": [
+        "frontend/Dockerfile"
+      ],
+      "commandIds": [
+        "frontend:build",
+        "frontend:lint",
+        "frontend:type-check"
+      ],
+      "sources": [
+        {
+          "path": "frontend/Dockerfile",
+          "sha256": "3f42198d2ddd2e96daa1c419d5d5c7cfaafbcc1263ca5cab7c1cdd8c88490ae5",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/package-lock.json",
+          "sha256": "755fbf053bc98724cce38bb61fee02c2776478fb75590ac35774c9152eb91965",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "2d48d7224eb3186fdc50794de1c246ca8cb743b70cc09587e6aa62960e00d6e6",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "contracts": [],
+      "tests": [],
+      "dependencies": "See audited compose and source contracts; no inferred business rule"
+    },
+    {
+      "id": "api-gateway",
+      "path": "nginx-gateway",
+      "runtime": "nginx",
+      "entrypoints": [
+        "nginx-gateway/Dockerfile"
+      ],
+      "commandIds": [],
+      "sources": [
+        {
+          "path": "nginx-gateway/Dockerfile",
+          "sha256": "4510b41d00e9dcde6e8877684447672d545dbee0c182e0f8b5607e7bcc08983d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "contracts": [],
+      "tests": [],
+      "dependencies": "See audited compose and source contracts; no inferred business rule"
+    }
+  ],
+  "compose": {
+    "source": {
+      "path": "docker-compose.yml",
+      "sha256": "a9f543db6dab3428cbea60c9a4996aad935a670f9ff875f646fa48a06bc291b0",
+      "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+    },
+    "services": {
+      "redis": {
+        "image": "redis:7-alpine",
+        "build": null,
+        "dependsOn": null,
+        "ports": [
+          "6379:6379"
+        ],
+        "profiles": []
+      },
+      "auth-db": {
+        "image": "mysql:8.0",
+        "build": null,
+        "dependsOn": null,
+        "ports": [
+          "3307:3306"
+        ],
+        "profiles": []
+      },
+      "scholarship-db": {
+        "image": "mysql:8.0",
+        "build": null,
+        "dependsOn": null,
+        "ports": [
+          "3308:3306"
+        ],
+        "profiles": []
+      },
+      "auth-service": {
+        "image": null,
+        "build": {
+          "context": "./backend-java/auth-service",
+          "dockerfile": "Dockerfile"
+        },
+        "dependsOn": {
+          "auth-db": {
+            "condition": "service_healthy"
+          },
+          "rabbitmq": {
+            "condition": "service_healthy"
+          },
+          "redis": {
+            "condition": "service_healthy"
+          }
+        },
+        "ports": [
+          "19081:8081"
+        ],
+        "profiles": []
+      },
+      "matching-service": {
+        "image": null,
+        "build": {
+          "context": "./matching-service",
+          "dockerfile": "Dockerfile"
+        },
+        "dependsOn": {
+          "matching-db": {
+            "condition": "service_healthy"
+          },
+          "rabbitmq": {
+            "condition": "service_healthy"
+          }
+        },
+        "ports": [
+          "8000:8000"
+        ],
+        "profiles": []
+      },
+      "matching-consumer": {
+        "image": null,
+        "build": {
+          "context": "./matching-service",
+          "dockerfile": "Dockerfile"
+        },
+        "dependsOn": {
+          "matching-db": {
+            "condition": "service_healthy"
+          },
+          "rabbitmq": {
+            "condition": "service_healthy"
+          }
+        },
+        "ports": [],
+        "profiles": [
+          "workers"
+        ]
+      },
+      "matching-db": {
+        "image": "postgres:14-alpine",
+        "build": null,
+        "dependsOn": null,
+        "ports": [
+          "5432:5432"
+        ],
+        "profiles": []
+      },
+      "rabbitmq": {
+        "image": "rabbitmq:3-management-alpine",
+        "build": null,
+        "dependsOn": null,
+        "ports": [
+          "5672:5672",
+          "15672:15672"
+        ],
+        "profiles": []
+      },
+      "frontend": {
+        "image": null,
+        "build": {
+          "context": "./frontend",
+          "dockerfile": "Dockerfile",
+          "args": {
+            "NEXT_PUBLIC_API_GATEWAY": "http://localhost:19080",
+            "NEXT_PUBLIC_API_URL": "http://localhost:19080",
+            "NEXT_PUBLIC_SOCKET_URL": "ws://localhost:19080/api/ws"
+          }
+        },
+        "dependsOn": [
+          "api-gateway"
+        ],
+        "ports": [
+          "3000:3000"
+        ],
+        "profiles": []
+      },
+      "api-gateway": {
+        "image": "nginx:alpine",
+        "build": null,
+        "dependsOn": {
+          "auth-service": {
+            "condition": "service_healthy"
+          },
+          "scholarship-service": {
+            "condition": "service_healthy"
+          },
+          "chat-service": {
+            "condition": "service_healthy"
+          },
+          "matching-service": {
+            "condition": "service_healthy"
+          }
+        },
+        "ports": [
+          "19080:80"
+        ],
+        "profiles": []
+      },
+      "scholarship-service": {
+        "image": null,
+        "build": {
+          "context": "./backend-java/scholarship-service",
+          "dockerfile": "Dockerfile"
+        },
+        "dependsOn": {
+          "scholarship-db": {
+            "condition": "service_healthy"
+          },
+          "rabbitmq": {
+            "condition": "service_healthy"
+          },
+          "redis": {
+            "condition": "service_healthy"
+          }
+        },
+        "ports": [
+          "19082:8082"
+        ],
+        "profiles": []
+      },
+      "chat-service": {
+        "image": null,
+        "build": {
+          "context": "./backend-java/chat-service",
+          "dockerfile": "Dockerfile"
+        },
+        "dependsOn": {
+          "chat-db": {
+            "condition": "service_healthy"
+          },
+          "rabbitmq": {
+            "condition": "service_healthy"
+          }
+        },
+        "ports": [
+          "19083:8083"
+        ],
+        "profiles": []
+      },
+      "chat-db": {
+        "image": "mysql:8.0",
+        "build": null,
+        "dependsOn": null,
+        "ports": [
+          "3309:3306"
+        ],
+        "profiles": []
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion":"1.0","server":"https://github.com/github/github-mcp-server",
+  "imageDigest":null,"transport":"stdio","readOnly":true,"toolsets":["repos","issues","pull_requests","actions"],
+  "repositoryAllowlist":["hunter875/edumatch-production"],"credentialLocation":"separate read-only broker container; never agent/test env",
+  "permissions":{"contents":"read","issues":"read","pull_requests":"read","actions":"read"},
+  "state":"BLOCKED_UNTIL_IMAGE_PIN_CREDENTIAL_SCOPE_AND_ISOLATION_SMOKE",
+  "residualScope":"Official server tool selection is not GitHub authorization. Use a fine-grained token restricted to this repository; review untrusted issue/PR/action content as data."
+}

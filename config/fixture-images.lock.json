@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "preparedAt": "2026-09-16T21:19:12.122Z",
+  "architecture": "linux/amd64",
+  "images": {
+    "node": {
+      "image": "node@sha256:dbcedd8aeab47fbc0f4dd4bffa55b7c3c729a707875968d467aaaea42d6225af",
+      "sourceTag": "node:22.20.0-alpine"
+    },
+    "postgres": {
+      "image": "postgres@sha256:727876d274666da0b92a445390ba093c84b8e9f8343e1c53cd4e9a7ab2d85310",
+      "sourceTag": "postgres:14-alpine"
+    },
+    "mysql": {
+      "image": "mysql@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b",
+      "sourceTag": "mysql:8.0"
+    },
+    "redis": {
+      "image": "redis@sha256:ff02b58f971e7d7d156a1267e283fcbbeee91773b6aa36c49dac28ecfe28eadf",
+      "sourceTag": "redis:7-alpine"
+    },
+    "rabbitmq": {
+      "image": "rabbitmq@sha256:606d8c0d6b3c18d1da9afc53bc7cdb2a8d5486df91b5a9830e9e07626c9ae281",
+      "sourceTag": "rabbitmq:3.13-management-alpine"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,
+  "required":["schemaVersion","toolCallId","evidenceId","toolVersion","argumentsHash","status","error","source","environment","targetRef","revision","revisionUnknownReason","fetchedAt","sourceObservedAt","queryWindow","freshness","complete","truncated","nextCursor","coverage","limitsApplied","data","redactedFields","warnings","artifactRef","artifactSha256"],
+  "properties":{
+    "schemaVersion":{"const":"1.0"},"toolCallId":{"type":"string","pattern":"^call-[a-zA-Z0-9-]+$"},"evidenceId":{"type":"string","pattern":"^ev-[a-zA-Z0-9-]+$"},"toolVersion":{"type":"string","minLength":1},"argumentsHash":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "status":{"enum":["ok","partial","error"]},"error":{"anyOf":[{"type":"null"},{"type":"object","additionalProperties":false,"required":["code","message"],"properties":{"code":{"enum":["INVALID_ARGUMENT","PERMISSION_DENIED","TARGET_MISMATCH","NOT_FOUND","TIMEOUT","RATE_LIMITED","SOURCE_UNAVAILABLE","SCHEMA_MISMATCH","POLICY_DENIED"]},"message":{"type":"string"}}}]},
+    "source":{"type":"string","minLength":1},"environment":{"enum":["fixture","local-shared","aws-staging"]},"targetRef":{"type":"string","minLength":1},"revision":{"type":["string","null"]},"revisionUnknownReason":{"type":["string","null"]},
+    "fetchedAt":{"type":"string","format":"date-time"},"sourceObservedAt":{"anyOf":[{"type":"string","format":"date-time"},{"type":"null"}]},"queryWindow":{"anyOf":[{"type":"null"},{"type":"object","additionalProperties":false,"required":["from","to"],"properties":{"from":{"type":"string","format":"date-time"},"to":{"type":"string","format":"date-time"}}}]},"freshness":{"enum":["within-policy","stale","unknown","historical"]},
+    "complete":{"type":"boolean"},"truncated":{"type":"boolean"},"nextCursor":{"type":["string","null"]},
+    "coverage":{"type":"object","additionalProperties":false,"required":["returned","matchedTotal","scannedTotal"],"properties":{"returned":{"type":"integer","minimum":0},"matchedTotal":{"type":["integer","null"],"minimum":0},"scannedTotal":{"type":["integer","null"],"minimum":0}}},
+    "limitsApplied":{"type":"object","additionalProperties":false,"required":["maxRecords","maxBytes","timeoutMs"],"properties":{"maxRecords":{"type":"integer","minimum":1},"maxBytes":{"type":"integer","minimum":1},"timeoutMs":{"type":"integer","minimum":1}}},
+    "data":{},"redactedFields":{"type":"array","items":{"type":"string"}},"warnings":{"type":"array","items":{"type":"string"}},"artifactRef":{"type":"string","pattern":"^ev-[a-zA-Z0-9-]+$"},"artifactSha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+  }
+}

@@ -1,0 +1,3 @@
+Bind actual STS account and assumed role to the frozen target registry in ap-southeast-1. EC2 Describe may expose account metadata at IAM level; broker output filtering is an additional boundary. Observer has no SSM, deploy, secret read or EC2 mutation capability. DryRun permission probes belong to the trusted runner, never the model toolset.
+
+A release is verified only when desired manifest, inspected running image digests and external smoke agree. ECR image presence is insufficient. A code rollback cannot claim data rollback; require a separate compatible schema plan or approved restore drill with RPO/RTO.

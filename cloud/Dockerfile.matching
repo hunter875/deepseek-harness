@@ -1,0 +1,9 @@
+ARG PYTHON_BASE
+FROM ${PYTHON_BASE}
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends libpq5 && rm -rf /var/lib/apt/lists/* && useradd -u 10001 --create-home app
+COPY matching-service/requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY matching-service/ ./
+USER 10001:10001
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

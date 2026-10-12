@@ -1,0 +1,3 @@
+For scholarship events: OutboxPublisher and V4__outbox_events.sql establish implementation. Join event_id, publish confirmation, processed_events and consumer DB state. Inspect retry attempt and lease fields in matching migrations V5. The checked-in tests describe duplicate processing and expired leases; validate the business acceptance separately.
+
+Scholarship public detail Redis keys use scholarship:scholarshipPublicDetail::<numeric id>, audited from CacheConfig and ScholarshipPublicReadCacheService. Never enumerate Redis keys. Recommendation caches are PostgreSQL read models with profile/opportunity/corpus versions; do not treat those as Redis keys or infer freshness from TTL.

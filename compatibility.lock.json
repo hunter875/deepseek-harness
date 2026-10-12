@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "verifiedAt": "2026-09-16T20:59:50.934Z",
+  "upstream": {
+    "url": "https://github.com/deepseek-ai/deepseek-harness",
+    "auditedCheckoutCommit": "0d1f50007f9bca3f52b06e1c3074fa14d5fb0720",
+    "installedPackage": "@deepseek-ai/dsh",
+    "version": "0.1.5-rc.1",
+    "integrity": "sha512-rmNmzQCg3oIc1z8xH7izRSOuy1TNzq+/NILyfM+7e8DKOyV+yBtg47WEsqR2SiIe1ATec3L/rUa1YhIcfQ2XEg==",
+    "lockfileSha256": "857cee0313a05129cc357bcfdc22d5046314c33c07ddf34ee51b7d97296bfb04",
+    "sourceAndPublishedPackageAreDistinct": true
+  },
+  "runtimes": {
+    "node": "v22.20.0",
+    "npm": "10.9.3",
+    "javaRequired": "17",
+    "javaAvailable": false,
+    "pythonRequired": "3.10",
+    "pythonAvailable": "Python 3.10 in corrected local matching image; host bundled Python 3.12 for skill validation",
+    "frontendCiNode": "20",
+    "frontendDockerNode": "18",
+    "docker": {
+      "observed": "Docker Desktop 4.70.0 / Engine 29.4.0, Linux amd64 WSL2",
+      "isolationEvidence": "artifacts/isolation.json"
+    }
+  },
+  "capabilities": {
+    "entrypoint": "node node_modules/@deepseek-ai/dsh/lib/bin.js",
+    "helpVerified": true,
+    "profileMechanism": "DSH_HOME/profiles/<name>/package.json + cordis.patch.yml; CLI --profile/--patch/--dump-config verified on installed package",
+    "skillDiscovery": "customSkillDirs with includeDefaultRoots=false; confirmed in installed type/schema",
+    "mcpTransport": "stdio",
+    "permissionBoundary": "Host shell disabled by profile; candidate execution requires pinned disposable container",
+    "boot": "fixture-pass",
+    "multiTurnProviderSmoke": "blocked-missing-api-key",
+    "strictBeta": false,
+    "multiTurnFixtureSmoke": true
+  },
+  "model": {
+    "provider": "deepseek-official",
+    "endpoint": "https://api.deepseek.com",
+    "apiFormat": "OpenAI Chat Completions through upstream adapter",
+    "requestedModelId": "deepseek-flash",
+    "responseModelId": null,
+    "thinking": "disabled",
+    "maxTokens": 8192,
+    "immutableWeights": false,
+    "sampling": "provider default; no deterministic claim"
+  },
+  "loadedSkills": [],
+  "loadedTools": [
+    "mcp__edumatch__db_read_query",
+    "mcp__edumatch__db_schema",
+    "mcp__edumatch__rabbitmq_status",
+    "mcp__edumatch__redis_key_metadata",
+    "mcp__edumatch__search_logs",
+    "mcp__edumatch__service_health"
+  ],
+  "gaps": [
+    "GitHub OIDC actual claim pending GitHub authorization",
+    "DeepSeek API key and dated provider price ceilings pending user setup",
+    "Pinned GitHub MCP image and fine-grained read token pending",
+    "EduMatch Maven/Python/frontend CI checks discovered; not verified as full source test suites locally",
+    "Staging compute deployment, external release smoke, restore drill and model eval have not run"
+  ],
+  "discoveredSkills": [
+    "code-change",
+    "diagnose",
+    "review"
+  ]
+}

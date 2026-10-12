@@ -1,0 +1,10 @@
+{
+  "schemaVersion":"1.0",
+  "toolVersion":"edumatch-ops-1",
+  "maxRecords":200,"maxBytes":102400,"timeoutMs":10000,"dbTimeoutMs":5000,"maxWindowSeconds":3600,
+  "freshnessSeconds":{"default":60,"deployment":300,"cost":86400},
+  "liveEnabled":false,
+  "requiredIsolationProbes":["host-home-denied","broker-canary-denied","oracle-denied","docker-socket-denied","metadata-denied","windows-interop-denied","child-env-clean"],
+  "allowedTools":["service_health","search_logs","db_schema","db_read_query","rabbitmq_status","redis_key_metadata","aws_instance_status","aws_logs","aws_deployment_status","aws_cost_summary"],
+  "deniedCapabilities":["raw-shell","raw-url","raw-sql","queue-consume","queue-purge","redis-write","aws-write","ssm","deploy","production"]
+}

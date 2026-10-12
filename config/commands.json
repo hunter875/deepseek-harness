@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "1.0",
+  "repo": "https://github.com/hunter875/edumatch-production.git",
+  "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b",
+  "commands": {
+    "auth-service:test": {
+      "id": "auth-service:test",
+      "executable": "./mvnw",
+      "argv": [
+        "test",
+        "-B"
+      ],
+      "cwd": "backend-java/auth-service",
+      "envAllowlist": [
+        "JAVA_HOME"
+      ],
+      "timeoutMs": 300000,
+      "maxBytes": 102400,
+      "sideEffect": "fixture-write",
+      "inputs": [
+        {
+          "path": "backend-java/auth-service/.mvn/wrapper/maven-wrapper.properties",
+          "sha256": "a58f3fc6f42dd8c192136bb6816e6df7975b17b203cd584b6d7f8d432995e233",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/mvnw",
+          "sha256": "cc2083805e79984e009760c56db7fc570ad3fa05280a4d16b4561125bd77ffe6",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/mvnw.cmd",
+          "sha256": "b813f69512a1c4ecc759f342d8d0fcfa76d19bad15d5295922aff7b54a9d1d62",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/auth-service/pom.xml",
+          "sha256": "539ebfd314cf78b8c909ff5318613b95b259431ea0dcc196533fe5d5928d34e5",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "lastSuccessfulEvidence": null,
+      "status": "discovered-not-run",
+      "reports": "target/surefire-reports/*.xml"
+    },
+    "scholarship-service:test": {
+      "id": "scholarship-service:test",
+      "executable": "./mvnw",
+      "argv": [
+        "test",
+        "-B"
+      ],
+      "cwd": "backend-java/scholarship-service",
+      "envAllowlist": [
+        "JAVA_HOME"
+      ],
+      "timeoutMs": 300000,
+      "maxBytes": 102400,
+      "sideEffect": "fixture-write",
+      "inputs": [
+        {
+          "path": "backend-java/scholarship-service/.mvn/wrapper/maven-wrapper.properties",
+          "sha256": "821602a8cceb1f8f5945f80b82b27617ba88b74a8afae230a5df80affcb6a8ab",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/mvnw",
+          "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/mvnw.cmd",
+          "sha256": "46eedb8419bd14fe70d5bb2916d7b6f51806e51b39d5b76a42610384ca929c1c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/scholarship-service/pom.xml",
+          "sha256": "5d8cccf16870efd38a22efc2de9a4ac99c8b1e59a56a1aee3c5b4e8d355425c7",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "lastSuccessfulEvidence": null,
+      "status": "discovered-not-run",
+      "reports": "target/surefire-reports/*.xml"
+    },
+    "chat-service:test": {
+      "id": "chat-service:test",
+      "executable": "./mvnw",
+      "argv": [
+        "test",
+        "-B"
+      ],
+      "cwd": "backend-java/chat-service",
+      "envAllowlist": [
+        "JAVA_HOME"
+      ],
+      "timeoutMs": 300000,
+      "maxBytes": 102400,
+      "sideEffect": "fixture-write",
+      "inputs": [
+        {
+          "path": "backend-java/chat-service/.mvn/wrapper/maven-wrapper.properties",
+          "sha256": "821602a8cceb1f8f5945f80b82b27617ba88b74a8afae230a5df80affcb6a8ab",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/mvnw",
+          "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/mvnw.cmd",
+          "sha256": "46eedb8419bd14fe70d5bb2916d7b6f51806e51b39d5b76a42610384ca929c1c",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "backend-java/chat-service/pom.xml",
+          "sha256": "0b33c9a6fb6282830bd28ce6e9c6de064ea417877182289e7b0502eea3ab374d",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "lastSuccessfulEvidence": null,
+      "status": "discovered-not-run",
+      "reports": "target/surefire-reports/*.xml"
+    },
+    "matching-service:test": {
+      "id": "matching-service:test",
+      "executable": "python",
+      "argv": [
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=/tmp/pytest.xml"
+      ],
+      "cwd": "matching-service",
+      "envAllowlist": [],
+      "timeoutMs": 300000,
+      "maxBytes": 102400,
+      "sideEffect": "fixture-write",
+      "inputs": [
+        {
+          "path": "matching-service/requirements.txt",
+          "sha256": "e2c67ed98d4bb4696a1e97b9eba2d5c8156be164edef3e174929076daad259ce",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "matching-service/tests/conftest.py",
+          "sha256": "669d45f69b345dfb1e4726f3ad130f083999456d83e62ecc2b8b2c382d20eafc",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "lastSuccessfulEvidence": null,
+      "status": "discovered-not-run",
+      "reports": "/tmp/pytest.xml"
+    },
+    "frontend:build": {
+      "id": "frontend:build",
+      "executable": "npm",
+      "argv": [
+        "run",
+        "build"
+      ],
+      "cwd": "frontend",
+      "envAllowlist": [
+        "NEXT_PUBLIC_API_GATEWAY",
+        "NEXT_PUBLIC_API_URL",
+        "NEXT_PUBLIC_SOCKET_URL"
+      ],
+      "timeoutMs": 300000,
+      "maxBytes": 102400,
+      "sideEffect": "fixture-write",
+      "inputs": [
+        {
+          "path": "frontend/package-lock.json",
+          "sha256": "755fbf053bc98724cce38bb61fee02c2776478fb75590ac35774c9152eb91965",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "2d48d7224eb3186fdc50794de1c246ca8cb743b70cc09587e6aa62960e00d6e6",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/tsconfig.json",
+          "sha256": "fc330e0b73cb7ea0c3450f18c58b89ca58604ab0fda7e3a3e92317a416962924",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "script": "next build",
+      "lastSuccessfulEvidence": null,
+      "status": "discovered-not-run"
+    },
+    "frontend:lint": {
+      "id": "frontend:lint",
+      "executable": "npm",
+      "argv": [
+        "run",
+        "lint"
+      ],
+      "cwd": "frontend",
+      "envAllowlist": [
+        "NEXT_PUBLIC_API_GATEWAY",
+        "NEXT_PUBLIC_API_URL",
+        "NEXT_PUBLIC_SOCKET_URL"
+      ],
+      "timeoutMs": 300000,
+      "maxBytes": 102400,
+      "sideEffect": "fixture-write",
+      "inputs": [
+        {
+          "path": "frontend/package-lock.json",
+          "sha256": "755fbf053bc98724cce38bb61fee02c2776478fb75590ac35774c9152eb91965",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "2d48d7224eb3186fdc50794de1c246ca8cb743b70cc09587e6aa62960e00d6e6",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/tsconfig.json",
+          "sha256": "fc330e0b73cb7ea0c3450f18c58b89ca58604ab0fda7e3a3e92317a416962924",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "script": "next lint",
+      "lastSuccessfulEvidence": null,
+      "status": "discovered-not-run"
+    },
+    "frontend:type-check": {
+      "id": "frontend:type-check",
+      "executable": "npm",
+      "argv": [
+        "run",
+        "type-check"
+      ],
+      "cwd": "frontend",
+      "envAllowlist": [
+        "NEXT_PUBLIC_API_GATEWAY",
+        "NEXT_PUBLIC_API_URL",
+        "NEXT_PUBLIC_SOCKET_URL"
+      ],
+      "timeoutMs": 300000,
+      "maxBytes": 102400,
+      "sideEffect": "fixture-write",
+      "inputs": [
+        {
+          "path": "frontend/package-lock.json",
+          "sha256": "755fbf053bc98724cce38bb61fee02c2776478fb75590ac35774c9152eb91965",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/package.json",
+          "sha256": "2d48d7224eb3186fdc50794de1c246ca8cb743b70cc09587e6aa62960e00d6e6",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        },
+        {
+          "path": "frontend/tsconfig.json",
+          "sha256": "fc330e0b73cb7ea0c3450f18c58b89ca58604ab0fda7e3a3e92317a416962924",
+          "revision": "0a37f74fa13cd49225480b71c3857afce3b1ea8b"
+        }
+      ],
+      "script": "tsc --noEmit",
+      "lastSuccessfulEvidence": null,
+      "status": "discovered-not-run"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {ROOT,loadConfig,requireGate,sha256,writeJson,utc} from '../lib/common.mjs';
+const cfg=await loadConfig();
+const keys=['AUTH_DB_ROOT_PASSWORD','AUTH_DB_PASSWORD','SCHOLARSHIP_DB_ROOT_PASSWORD','SCHOLARSHIP_DB_PASSWORD','CHAT_DB_ROOT_PASSWORD','CHAT_DB_PASSWORD','MATCHING_DB_PASSWORD','RABBITMQ_USERNAME','RABBITMQ_PASSWORD','EDUMATCH_JWT_SECRET','EDUMATCH_JWT_PUBLIC_KEY','EDUMATCH_JWT_PRIVATE_KEY','SPRING_MAIL_PASSWORD','SPRING_MAIL_USERNAME','SPRING_MAIL_HOST','SPRING_MAIL_PORT','SPRING_MAIL_STARTTLS_ENABLE'];
+const required=keys.filter(k=>k!=='EDUMATCH_JWT_SECRET');
+requireGate(required.every(k=>cfg[k]),'BLOCKED',`Fill runtime fields in .env: ${required.filter(k=>!cfg[k]).join(', ')}`);
+requireGate(cfg.EDUMATCH_JWT_PUBLIC_KEY.includes('PUBLIC KEY')&&cfg.EDUMATCH_JWT_PRIVATE_KEY.includes('PRIVATE KEY'),'BLOCKED','RSA key pair is required for staging');
+const output=path.join(ROOT,'.state/runtime/.env');await fs.mkdir(path.dirname(output),{recursive:true});
+await fs.writeFile(output,keys.map(k=>`${k}=${JSON.stringify(cfg[k])}`).join('\n')+'\n',{mode:0o600});
+await writeJson(path.join(ROOT,'artifacts/runtime-env.json'),{source:'trusted-central-config-subset',generatedAt:utc(),destination:'.state/runtime/.env',keyNames:keys,fileSha256:sha256(await fs.readFile(output)),valuesPublished:false});
+console.log('Runtime subset generated at .state/runtime/.env; transfer only to /opt/edumatch/runtime/.env with operator permissions.');

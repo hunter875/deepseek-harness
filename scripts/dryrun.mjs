@@ -1,0 +1,11 @@
+import path from 'node:path';
+import {ROOT,loadConfig,readJson,writeJson,requireGate,utc} from '../lib/common.mjs';
+import {bindAwsIdentity} from '../lib/adapters.mjs';
+import {runProcess} from '../lib/process.mjs';
+const cfg=await loadConfig();const targets=await readJson(path.join(ROOT,cfg.EDUMATCH_TARGETS_FILE));const target=targets.targets['aws-staging'];
+await bindAwsIdentity(cfg,target);
+requireGate(/^i-[a-f0-9]+$/.test(target.instanceId??''),'TARGET_MISMATCH','Bind exact staging instance before DryRun');
+const result=await runProcess('aws',['ec2','stop-instances','--instance-ids',target.instanceId,'--dry-run','--profile',cfg.AWS_PROFILE,'--region',target.region,'--no-cli-pager'],{timeoutMs:10000,maxBytes:102400});
+const denied=/UnauthorizedOperation/.test(result.output),wouldAllow=/DryRunOperation/.test(result.output);
+await writeJson(path.join(ROOT,'artifacts/aws-dryrun.json'),{source:'live-dryrun',targetRef:'aws-staging',accountId:target.accountId,region:target.region,instanceId:target.instanceId,action:'ec2:StopInstances',dryRun:true,permissionDenied:denied,wouldAllow,passed:denied&&!wouldAllow,verifiedAt:utc(),exitCode:result.exitCode});
+console.log(denied&&!wouldAllow?'DryRun observer mutation denial: PASS':'DryRun gate: FAIL or inconclusive');process.exitCode=denied&&!wouldAllow?0:1;

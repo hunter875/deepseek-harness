@@ -1,0 +1,22 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {randomBytes} from 'node:crypto';
+import {ROOT,readJson,writeJson,id,utc,authenticated,requireGate} from '../lib/common.mjs';
+import {manifest} from '../lib/snapshot.mjs';
+import {TaskRunner} from '../lib/runner.mjs';
+import {nodeProbeExecutor} from '../lib/verifiers.mjs';
+const state=path.join(ROOT,'.state','demo',id('run'));await fs.mkdir(state,{recursive:true});
+const workspace=path.join(state,'workspace');await fs.cp(path.join(ROOT,'fixtures/demo'),workspace,{recursive:true});
+const registry=await readJson(path.join(ROOT,'fixtures/oracles/demo.json'));
+const task={schemaVersion:'1.0',taskId:id('task'),state:'FROZEN',kind:'code',goal:'Synthetic fixture: clamp numeric score to [0,100]',acceptance:[{id:'clamp',behavior:'-5 -> 0, 42 -> 42, 105 -> 100',source:'fixtures/oracles/demo.json frozen before patch',verifierId:'clamp-boundary',requirement:'required',notApplicableReason:null}],repo:'synthetic-fixture',baseRevision:null,initialSnapshotDigest:(await manifest(workspace)).digest,environment:'fixture',targetRef:'local-fixture',scope:{allowedPaths:['score.mjs'],services:['synthetic-score'],forbiddenChanges:['policy','oracle']},contracts:[],commandIds:[],verifierIds:['clamp-boundary'],authorizationRef:'user-request-execute-all-phases-local-fixtures',allowedCapabilities:['read-code','edit-code','fixture-test'],unknowns:[],assumptions:['Synthetic fixture, not an EduMatch business rule'],budget:{maxSeconds:120,maxToolCalls:20,maxTokens:10000,maxCostUsd:0,maxRepairs:3}};
+const docker=process.argv.includes('--docker');let executor;
+if(docker){const proof=await readJson(path.join(ROOT,'artifacts/isolation.json')),key=await fs.readFile(path.join(ROOT,'.state/authority.key'));requireGate(authenticated(proof.result,proof.signature,key)&&proof.result.expiresAt>Date.now()&&proof.result.probes.every(p=>p.passed),'POLICY_DENIED','Valid isolation attestation required');executor=nodeProbeExecutor({mode:'docker',image:proof.result.image,isolationAttested:true});}
+else executor=nodeProbeExecutor();
+const runner=new TaskRunner({stateDir:state,key:randomBytes(32),registry,executor});
+const session=await runner.freeze(task,workspace);runner.transition(session,'BASELINE');runner.transition(session,'PLAN');runner.transition(session,'VERIFY');
+const baseline=(await runner.verify(session,workspace)).result;
+runner.transition(session,'REPAIR',baseline.checks[0].artifactSha256);runner.transition(session,'EDIT');
+await fs.writeFile(path.join(workspace,'score.mjs'),'export function boundedScore(value) { return Math.max(0, Math.min(100, Number(value))); }\n');
+runner.transition(session,'VERIFY');const candidate=(await runner.verify(session,workspace)).result;runner.transition(session,'REPORT');const report=await runner.report(session,workspace);
+await writeJson(path.join(ROOT,'artifacts','coding-demo.json'),{source:'synthetic-fixture',verifiedAt:utc(),baseline,candidate,report,taskFolder:session.folder});
+console.log(`Frozen oracle: baseline ${baseline.status}; candidate ${candidate.status}; ${candidate.checks[0].pass}/${candidate.checks[0].ran} boundary assertions`);

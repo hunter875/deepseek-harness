@@ -1,0 +1,21 @@
+import path from 'node:path';
+import fs from 'node:fs/promises';
+import YAML from 'yaml';
+import {ROOT,readJson,writeJson,requireGate,utc} from '../lib/common.mjs';
+import {runProcess} from '../lib/process.mjs';
+const project='edumatch-main',compose='D:/EduMatch-main/EduMatch-main/docker-compose.yml',repo=path.join(ROOT,'edumatch');
+const revision=(await readJson(path.join(ROOT,'project-map.json'))).revision;
+async function docker(args,timeoutMs=30000){const r=await runProcess('docker',args,{timeoutMs,maxBytes:102400});requireGate(r.exitCode===0&&!r.timedOut&&!r.truncated,'RECOVERY_FAILED',r.output.slice(-3000));return r;}
+const original=(await docker(['image','inspect','edumatch-main-matching-service','--format','{{.Id}}'])).output.trim();
+requireGate(/^sha256:[a-f0-9]{64}$/.test(original),'SCHEMA_MISMATCH','Local dependency image ID is invalid');
+const frozen=`edumatch-harness/matching-deps:${original.slice(7,19)}`,image=`edumatch-harness/matching-service:${revision}`;
+await docker(['tag',original,frozen]);
+await docker(['build','--network','none','--pull=false','-f',path.join(ROOT,'cloud/Dockerfile.local-matching'),'--build-arg',`LOCAL_DEPENDENCY_IMAGE=${frozen}`,'--label',`org.opencontainers.image.revision=${revision}`,'-t',image,repo],120000);
+const imageId=(await docker(['image','inspect',image,'--format','{{.Id}}'])).output.trim();
+const overlay=path.join(ROOT,'.state/docker-recovery.yml');await fs.mkdir(path.dirname(overlay),{recursive:true});await fs.writeFile(overlay,YAML.stringify({services:{'matching-service':{image},'matching-consumer':{image}}}));
+await writeJson(path.join(ROOT,'artifacts/docker-recovery.json'),{project,sourceRevision:revision,dependencyImageId:original,imageId,overlay:'.state/docker-recovery.yml',preparedAt:utc(),limitations:['Local recovery reuses existing dependency image; this is not an AWS release','All other application images remain their original local builds']});
+const trustedEnv=Object.fromEntries(['USERPROFILE','HOME'].filter(k=>process.env[k]).map(k=>[k,process.env[k]]));
+const composeExecutable=process.platform==='win32'?'C:/Program Files/Docker/Docker/resources/cli-plugins/docker-compose.exe':'docker';
+const composeArgs=process.platform==='win32'?[]:['compose'];
+const up=await runProcess(composeExecutable,[...composeArgs,'-p',project,'-f',compose,'-f',overlay,'up','-d','--no-build','--pull','never'],{timeoutMs:240000,maxBytes:102400,env:trustedEnv});console.log(up.output);requireGate(up.exitCode===0&&!up.timedOut,'RECOVERY_FAILED','Recreated source image did not pass Compose readiness');
+console.log('Local EduMatch stack recreated with corrected matching source.');

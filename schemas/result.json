@@ -1,0 +1,10 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#","type":"object","additionalProperties":false,
+  "required":["schemaVersion","taskId","status","candidateSnapshotDigest","baseRevision","patchHash","verifierManifestHash","startedAt","finishedAt","checks","acceptance","limitations"],
+  "properties":{
+    "schemaVersion":{"const":"1.0"},"taskId":{"type":"string"},"status":{"enum":["SUCCEEDED_LOCAL","SUCCEEDED_STAGING","DIAGNOSED","REVIEWED","NEEDS_DECISION","BLOCKED","FAILED","CANCELLED"]},
+    "candidateSnapshotDigest":{"type":"string","pattern":"^[a-f0-9]{64}$"},"baseRevision":{"type":["string","null"]},"patchHash":{"type":"string","pattern":"^[a-f0-9]{64}$"},"verifierManifestHash":{"type":"string","pattern":"^[a-f0-9]{64}$"},"startedAt":{"type":"string","format":"date-time"},"finishedAt":{"type":"string","format":"date-time"},
+    "checks":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["verifierId","passed","discovered","ran","pass","fail","skip","exitCode","signal","timedOut","artifactRef","artifactSha256","runtime","startedAt","finishedAt"],"properties":{"verifierId":{"type":"string"},"passed":{"type":"boolean"},"discovered":{"type":"integer","minimum":0},"ran":{"type":"integer","minimum":0},"pass":{"type":"integer","minimum":0},"fail":{"type":"integer","minimum":0},"skip":{"type":"integer","minimum":0},"exitCode":{"type":["integer","null"]},"signal":{"type":["string","null"]},"timedOut":{"type":"boolean"},"artifactRef":{"type":"string"},"artifactSha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"runtime":{"type":"string"},"startedAt":{"type":"string","format":"date-time"},"finishedAt":{"type":"string","format":"date-time"}}}},
+    "acceptance":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["id","status","evidenceRef","reason"],"properties":{"id":{"type":"string"},"status":{"enum":["passed","failed","not-run","not-applicable"]},"evidenceRef":{"type":["string","null"]},"reason":{"type":["string","null"]}}}},"limitations":{"type":"array","items":{"type":"string"}}
+  }
+}

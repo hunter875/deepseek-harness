@@ -1,0 +1,9 @@
+# Local recovery only: reuses an inspected local dependency image, copies audited source.
+# AWS uses Dockerfile.matching and separately pinned upstream base/dependency preparation.
+ARG LOCAL_DEPENDENCY_IMAGE
+FROM ${LOCAL_DEPENDENCY_IMAGE}
+WORKDIR /app
+COPY matching-service/app/ ./app/
+COPY matching-service/migrations/ ./migrations/
+COPY matching-service/tests/ ./tests/
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

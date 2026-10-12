@@ -1,0 +1,167 @@
+name: AWS staging build and deploy
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [deploy, rollback]
+        default: deploy
+      previous_release:
+        description: Current release ID (empty for first deploy)
+        type: string
+      rollback_release:
+        description: Retained release ID for code rollback
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: edumatch-aws-staging
+  cancel-in-progress: false
+env:
+  AWS_REGION: ap-southeast-1
+jobs:
+  build:
+    if: inputs.operation == 'deploy'
+    runs-on: ubuntu-latest
+    environment: aws-staging-build
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.20.0'
+          cache: npm
+          cache-dependency-path: ops/dsh/package-lock.json
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.10'
+      - name: Test matching source
+        working-directory: matching-service
+        run: |
+          python -m pip install -r requirements.txt pytest==8.4.2
+          python -m pytest -q --junitxml=pytest-results.xml
+      - name: Install trusted release tooling and test its gates
+        working-directory: ops/dsh
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          cp .env.example .env
+          npm test
+      - uses: aws-actions/configure-aws-credentials@ff717079ee2060e4bcee96c4779b553acc87447c # v4
+        with:
+          role-to-assume: ${{ vars.AWS_BUILD_ROLE_ARN }}
+          aws-region: ap-southeast-1
+          allowed-account-ids: ${{ vars.AWS_ACCOUNT_ID }}
+      - name: Build tested application images and record immutable digests
+        env:
+          ACCOUNT: ${{ vars.AWS_ACCOUNT_ID }}
+          DOMAIN: ${{ vars.AWS_TLS_DOMAIN }}
+          BASES_JSON: ${{ vars.AWS_BUILD_BASE_IMAGES_JSON }}
+          PLATFORMS_JSON: ${{ vars.AWS_PLATFORM_IMAGES_JSON }}
+          PREVIOUS_RELEASE: ${{ inputs.previous_release }}
+          BUCKET: ${{ vars.AWS_RELEASE_BUCKET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$ACCOUNT" =~ ^[0-9]{12}$ ]] && [[ "$DOMAIN" =~ ^[a-zA-Z0-9.-]+$ ]]
+          [[ -z "$PREVIOUS_RELEASE" || "$PREVIOUS_RELEASE" =~ ^[a-f0-9]{40}-[0-9]+$ ]]
+          export RELEASE_ID="$GITHUB_SHA-$GITHUB_RUN_ID"
+          export REGISTRY="$ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com"
+          python - <<'PY'
+          import json, os, re
+          bases=json.loads(os.environ['BASES_JSON'])
+          assert set(bases)=={'maven','java','node','python','nginx'}
+          assert all(re.fullmatch(r'[a-zA-Z0-9./:_-]+@sha256:[a-f0-9]{64}',v) for v in bases.values())
+          json.dump(bases,open('base-images.json','w'))
+          PY
+          aws ecr get-login-password | docker login --username AWS --password-stdin "$REGISTRY"
+          for service in auth-service scholarship-service chat-service matching-service frontend api-gateway; do
+            image="$REGISTRY/edumatch-staging/$service:$RELEASE_ID"
+            case "$service" in
+              auth-service|scholarship-service|chat-service)
+                docker build -f ops/dsh/cloud/Dockerfile.java --build-arg "SERVICE=$service" --build-arg "MAVEN_BASE=$(jq -r .maven base-images.json)" --build-arg "JAVA_BASE=$(jq -r .java base-images.json)" --label "org.opencontainers.image.revision=$GITHUB_SHA" -t "$image" . ;;
+              matching-service)
+                docker build -f ops/dsh/cloud/Dockerfile.matching --build-arg "PYTHON_BASE=$(jq -r .python base-images.json)" --label "org.opencontainers.image.revision=$GITHUB_SHA" -t "$image" . ;;
+              frontend)
+                docker build -f ops/dsh/cloud/Dockerfile.frontend --build-arg "NODE_BASE=$(jq -r .node base-images.json)" --build-arg "PUBLIC_ORIGIN=https://$DOMAIN" --label "org.opencontainers.image.revision=$GITHUB_SHA" -t "$image" . ;;
+              api-gateway)
+                docker build -f ops/dsh/cloud/Dockerfile.gateway --build-arg "NGINX_BASE=$(jq -r .nginx base-images.json)" --label "org.opencontainers.image.revision=$GITHUB_SHA" -t "$image" . ;;
+            esac
+            docker push "$image"
+            aws ecr describe-images --repository-name "edumatch-staging/$service" --image-ids "imageTag=$RELEASE_ID" --query 'imageDetails[0].imageDigest' --output text > "$service.digest"
+          done
+          python - <<'PY'
+          import hashlib,json,os,pathlib
+          images=json.loads(os.environ['PLATFORMS_JSON'])
+          for service in ['auth-service','scholarship-service','chat-service','matching-service','frontend','api-gateway']:
+              digest=pathlib.Path(service+'.digest').read_text().strip()
+              images[service]=os.environ['REGISTRY']+'/edumatch-staging/'+service+'@'+digest
+          files=sorted(list(pathlib.Path('matching-service/migrations').glob('*.sql'))+list(pathlib.Path('backend-java').glob('*/src/main/resources/db/migration/*.sql')))
+          migration=hashlib.sha256(b''.join(str(p).encode()+b'\0'+p.read_bytes() for p in files)).hexdigest()
+          json.dump(dict(schemaVersion='1.0',environment='aws-staging',accountId=os.environ['ACCOUNT'],region=os.environ['AWS_REGION'],releaseId=os.environ['RELEASE_ID'],sourceRevision=os.environ['GITHUB_SHA'],migrationDigest=migration,configVersion=None,tlsDomain=os.environ['DOMAIN'],expectedPreviousRelease=os.environ['PREVIOUS_RELEASE'] or None,images=images),open('release-input.json','w'))
+          PY
+          node ops/dsh/scripts/prepare-release.mjs . release-input.json release-output
+          for file in manifest.json compose.yml nginx.conf; do
+            aws s3api put-object --bucket "$BUCKET" --key "releases/$RELEASE_ID/$file" --body "release-output/$file" --if-none-match '*' >/dev/null
+          done
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-manifest
+          path: release-output/manifest.json
+          if-no-files-found: error
+  deploy:
+    needs: [build]
+    if: always() && (needs.build.result == 'success' || inputs.operation == 'rollback')
+    runs-on: ubuntu-latest
+    environment: aws-staging
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: aws-actions/configure-aws-credentials@ff717079ee2060e4bcee96c4779b553acc87447c # v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ap-southeast-1
+          allowed-account-ids: ${{ vars.AWS_ACCOUNT_ID }}
+      - name: Fixed release document and external TLS smoke
+        env:
+          INSTANCE: ${{ vars.AWS_INSTANCE_ID }}
+          DOMAIN: ${{ vars.AWS_TLS_DOMAIN }}
+          BUCKET: ${{ vars.AWS_RELEASE_BUCKET }}
+          OPERATION: ${{ inputs.operation }}
+          ROLLBACK_RELEASE: ${{ inputs.rollback_release }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$INSTANCE" =~ ^i-[a-f0-9]+$ ]] && [[ "$DOMAIN" =~ ^[a-zA-Z0-9.-]+$ ]]
+          release="$GITHUB_SHA-$GITHUB_RUN_ID"
+          if [[ "$OPERATION" == rollback ]]; then release="$ROLLBACK_RELEASE"; fi
+          [[ "$release" =~ ^[a-f0-9]{40}-[0-9]+$ ]]
+          parameters=$(jq -nc --arg release "$release" --arg op "$OPERATION" '{ReleaseId:[$release],Operation:[$op]}')
+          command=$(aws ssm send-command --instance-ids "$INSTANCE" --document-name EduMatch-Staging-Release --parameters "$parameters" --query Command.CommandId --output text)
+          # Poll a bounded fixed document; never replay an unknown-status deploy.
+          status=Pending
+          for attempt in $(seq 1 120); do
+            status=$(aws ssm get-command-invocation --command-id "$command" --instance-id "$INSTANCE" --query Status --output text 2>/dev/null || true)
+            case "$status" in Success|Failed|Cancelled|TimedOut) break ;; esac
+            sleep 10
+          done
+          [[ "$status" == Success ]]
+          aws s3 cp "s3://$BUCKET/status/$release.json" observed.json --only-show-errors
+          jq -e --arg release "$release" '.releaseId==$release and .status=="RECONCILED_PENDING_EXTERNAL_SMOKE" and ([.services[].reconciled]|all)' observed.json >/dev/null
+          curl --fail --silent --show-error "https://$DOMAIN/gateway/health" > gateway-smoke.json
+          jq -e --arg release "$release" --arg revision "$(jq -r .sourceRevision observed.json)" '.releaseId==$release and .sourceRevision==$revision and .environment=="aws-staging"' gateway-smoke.json >/dev/null
+          curl --fail --silent --show-error "https://$DOMAIN/api/auth/health" > auth-smoke.json
+          curl --fail --silent --show-error "https://$DOMAIN/" >/dev/null
+          jq '. + {status:"SUCCEEDED_STAGING",externalSmoke:true,rollbackCategory:"code-only"}' observed.json > staging-result.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: staging-verification
+          path: |
+            observed.json
+            staging-result.json
+            gateway-smoke.json
+            auth-smoke.json
+          if-no-files-found: warn

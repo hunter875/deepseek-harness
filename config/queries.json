@@ -1,0 +1,9 @@
+{
+  "schemaVersion":"1.0",
+  "queries":{
+    "processed-event-state":{"database":"matching","params":{"eventId":"string"},"sql":"SELECT event_id, routing_key, status, attempt_count, claimed_at, lease_until, processed_at FROM processed_events WHERE event_id = $1 ORDER BY event_id LIMIT 201","args":["eventId"],"fields":["event_id","routing_key","status","attempt_count","claimed_at","lease_until","processed_at"],"source":"matching-service/migrations/V3__processed_events.sql + V5__processed_event_leases.sql"},
+    "outbox-progress":{"database":"scholarship","params":{"status":"string"},"sql":"SELECT id, status, attempts, next_attempt_at, published_at, created_at, updated_at FROM outbox_events WHERE status = ? ORDER BY id LIMIT 201","args":["status"],"fields":["id","status","attempts","next_attempt_at","published_at","created_at","updated_at"],"source":"backend-java/scholarship-service/src/main/resources/db/migration/V4__outbox_events.sql"}
+  },
+  "schemaTables":{"matching":["processed_events","recommendation_cache","matching_scores"],"scholarship":["outbox_events","idempotency_records"]},
+  "cacheEncoders":{"scholarship-public-detail":{"prefix":"scholarship:scholarshipPublicDetail::","entityPattern":"^[1-9][0-9]{0,18}$","source":"backend-java/scholarship-service/src/main/java/com/edumatch/scholarship/config/CacheConfig.java + service/ScholarshipPublicReadCacheService.java"}}
+}

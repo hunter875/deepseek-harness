@@ -1,0 +1,8 @@
+{
+  "schemaVersion":"1.0","state":"PENDING_LIVE_MODEL_AND_SANDBOX","split":{"development":8,"holdout":4},"repetitions":3,"pairedTrajectories":72,
+  "defaultModel":"deepseek-flash","alternativeModel":"deepseek-v4-pro","automaticRouting":false,
+  "candidateBundle":["scoped-context-map","strict-tool-evidence","frozen-snapshot-verifier"],
+  "preconditions":["independent EduMatch acceptance/oracles confirmed","isolated sandbox probes pass","DeepSeek key configured","per-run time/calls/token/API-price budget enforced","development candidate frozen before holdout"],
+  "procedure":["Freeze checkout, dirty-source snapshot, oracle and budgets","Run baseline/candidate in alternating order on clean independent workspaces","Classify model timeout as task failure; separate infra failure and bounded rerun","Publish all 72 trajectories, denominators, by-group failures, unknown handling and cost per verified success","Only select a model/context candidate if security gates pass and holdout supports the choice"],
+  "currentEvidence":"artifacts/eval-policy.json is synthetic policy-only and cannot satisfy this live model gate"
+}

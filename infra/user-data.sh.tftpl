@@ -1,0 +1,26 @@
+#!/bin/bash
+set -euo pipefail
+# AMI is audited Amazon Linux 2023 x86_64, which ships the SSM agent. SSM is
+# the only administration path (SSH is disabled below), so a missing agent
+# would leave the host unreachable: verify it before anything else.
+if ! systemctl list-unit-files amazon-ssm-agent.service >/dev/null 2>&1; then
+  dnf install -y amazon-ssm-agent
+fi
+systemctl enable --now amazon-ssm-agent
+
+dnf install -y docker jq python3 openssl
+systemctl enable --now docker
+
+install -d -m 0700 /opt/edumatch/{bin,releases,runtime,tls,status} /srv/edumatch
+printf '%s\n' '${bucket}' > /opt/edumatch/release-bucket
+printf '%s\n' '${max_hours}' > /opt/edumatch/max-session-hours
+# The data volume is identified by its Terraform-managed ID. Identification,
+# blank-only formatting and the UUID/fstab/mount wiring live in the reviewed
+# bootstrap-data-volume.sh script, which install.sh places on the host.
+printf '%s\n' '${data_volume_id}' > /opt/edumatch/data-volume-id
+
+# Startup deliberately does not format or mount an unidentified disk, and it
+# does not start any database: release.sh only brings the stack up once
+# /srv/edumatch is the bound encrypted EBS filesystem.
+systemctl stop sshd || true
+systemctl disable sshd || true

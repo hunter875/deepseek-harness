@@ -1,0 +1,7 @@
+{
+  "schemaVersion":"1.0",
+  "targets":{
+    "local-fixture":{"environment":"fixture","revision":"fixture-v1","services":["auth-service","scholarship-service","matching-service","matching-consumer","chat-service","api-gateway"],"databases":["matching","scholarship"],"queues":["user_profile_updates","scholarship_updates"],"cacheDomains":["scholarship-public-detail"],"logAliases":["staging"],"budgetAliases":["edumatch-staging"]},
+    "aws-staging":{"environment":"aws-staging","revision":null,"accountId":null,"roleArn":null,"region":"ap-southeast-1","instanceId":null,"services":["auth-service","scholarship-service","matching-service","matching-consumer","chat-service","api-gateway"],"databases":["matching","scholarship"],"queues":["user_profile_updates","scholarship_updates"],"cacheDomains":["scholarship-public-detail"],"logAliases":["staging"],"budgetAliases":["edumatch-staging"],"healthUrls":{},"logGroups":{"staging":"/edumatch/staging"},"vhost":"/","deploymentStatusFile":null,"localLogFiles":{}}
+  }
+}
